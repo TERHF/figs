@@ -1,0 +1,64 @@
+class Student:
+    def __init__(self, name, age, average_grade):
+        """
+        Конструктор для инициализации свойств класса.
+        :param name: Имя студента (строка).
+        :param age: Возраст студента (целое число).
+        :param average_grade: Средний балл студента (вещественное число).
+        """
+        self.name = name
+        self.age = age
+        self.average_grade = average_grade
+
+    # Методы для установки значений свойств
+    def set_name(self, name):
+        self.name = name
+
+    def set_age(self, age):
+        self.age = age
+
+    def set_average_grade(self, average_grade):
+        self.average_grade = average_grade
+
+    # Методы для получения значений свойств
+    def get_name(self):
+        return self.name
+
+    def get_age(self):
+        return self.age
+
+    def get_average_grade(self):
+        return self.average_grade
+
+    # Метод для вывода информации о студенте
+    def display_info(self):
+        print(f"Студент: {self.name}, Возраст: {self.age}, Средний балл: {self.average_grade:.2f}")
+
+    # Метод для оценки студента на основе среднего балла
+    def evaluate_performance(self):
+        if self.average_grade > 8:
+            return "Отлично"
+        elif 6 <= self.average_grade <= 8:
+            return "Хорошо"
+        elif 4 <= self.average_grade < 6:
+            return "Удовлетворительно"
+        else:
+            return "Неудовлетворительно"
+
+    # Дополнительный метод: проверка на стипендию
+    def is_eligible_for_scholarship(self):
+        return self.average_grade > 7
+
+# Создание объектов класса "Студент"
+student1 = Student("Иван Иванов", 20, 9.1)
+student2 = Student("Анна Смирнова", 19, 7.5)
+student3 = Student("Петр Петров", 22, 5.8)
+
+# Демонстрация использования класса
+students = [student1, student2, student3]
+
+for student in students:
+    student.display_info()
+    print(f"Успеваемость: {student.evaluate_performance()}")
+    print(f"Стипендия: {'Да' if student.is_eligible_for_scholarship() else 'Нет'}")
+    print("-" * 30)
